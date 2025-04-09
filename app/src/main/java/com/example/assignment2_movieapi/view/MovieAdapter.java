@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignment2_movieapi.R;
 import com.example.assignment2_movieapi.model.MovieModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -49,15 +51,27 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     static class MovieViewHolder extends RecyclerView.ViewHolder {
         TextView movieTitle, movieYear;
 
+        ImageView moviePoster;
+
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             movieTitle = itemView.findViewById(R.id.movieTitle);
             movieYear = itemView.findViewById(R.id.movieYear);
+            moviePoster = itemView.findViewById(R.id.moviePoster);
         }
 
         public void bind(final MovieModel movieModel, final OnMovieClickListener listener) {
             movieTitle.setText(movieModel.getTitle());
             movieYear.setText("Year: " + movieModel.getYear());
+
+            if (movieModel.getPoster() != null && !movieModel.getPoster().equals("N/A")) {
+                Picasso.get()
+                        .load(movieModel.getPoster())
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .into(moviePoster);
+            } else {
+                moviePoster.setImageResource(R.drawable.ic_launcher_background);
+            }
 
             itemView.setOnClickListener(v -> listener.onMovieClick(movieModel));
         }

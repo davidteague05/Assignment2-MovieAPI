@@ -92,4 +92,10 @@
         android:layout_height="wrap_content"
         android:text="Back" />
 
+    <Button
+        android:id="@+id/addToFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Favourites" />
+
 </LinearLayout>

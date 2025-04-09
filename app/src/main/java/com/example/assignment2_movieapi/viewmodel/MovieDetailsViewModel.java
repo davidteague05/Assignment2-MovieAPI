@@ -78,7 +78,8 @@ public class MovieDetailsViewModel extends ViewModel {
                 jsonObject.optString("Language", "N/A"),
                 jsonObject.optString("Year", "N/A"),
                 jsonObject.optString("Plot", "No description available"),
-                jsonObject.optString("Poster", null)
+                jsonObject.optString("Poster", null),
+                jsonObject.optString("imdbRating", "N/A")
         );
     }
 }

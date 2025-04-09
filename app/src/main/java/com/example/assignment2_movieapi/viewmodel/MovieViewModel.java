@@ -86,9 +86,10 @@ public class MovieViewModel extends ViewModel {
 
             String title = movieObject.optString("Title", "Unknown Title");
             String year = movieObject.optString("Year", "Unknown Year");
+            String poster = movieObject.optString("Poster", null);
             String imdbID = movieObject.optString("imdbID", null);
 
-            movies.add(new MovieModel(title, year, imdbID));
+            movies.add(new MovieModel(title, year, imdbID, poster));
         }
         return movies;
     }

@@ -10,15 +10,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.assignment2_movieapi.databinding.ActivityMainBinding;
 import com.example.assignment2_movieapi.model.MovieModel;
 import com.example.assignment2_movieapi.viewmodel.MovieViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.OnMovieClickListener {
 
     private ActivityMainBinding binding;
+    FirebaseAuth mAuth;
     private MovieAdapter movieAdapter;
     private List<MovieModel> movieModelList;
     private MovieViewModel movieViewModel;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference collectionReference = db.collection("movies");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnMo
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
 
         movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
@@ -51,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnMo
             if (!query.isEmpty()) {
                 movieViewModel.searchMovies(query);
             }
+        });
+
+        binding.favouritePageButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FavouriteMoviesActivity.class);
+            startActivity(intent);
         });
     }
 

@@ -3,36 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
     android:background="#121212">
 
-    <EditText
-        android:id="@+id/searchField"
+    <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search for a movieModel"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        android:padding="8dp"
-        android:background="#333333"
+        android:padding="16dp"
+        android:text="Favourites"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"/>
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:textSize="16sp"
-        android:padding="8dp"
-        android:background="#4CAF50"
-        android:textColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="567dp"
-        android:padding="8dp" />
+        android:layout_height="592dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFF"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,9 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Search"
-            android:layout_marginEnd="8dp"
-            android:background="#4CAF50"
-            android:textColor="#FFFFFF"/>
+            android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/favouritePageButton"
@@ -57,6 +44,13 @@
             android:layout_weight="1"
             android:text="Favourites" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/addEditPageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add/Edit"
+            android:layout_marginStart="8dp" />
 
+    </LinearLayout>
 </LinearLayout>

@@ -10,9 +10,10 @@ public class MovieDetailsModel {
     private String year;
     private String plot;
     private String poster;
+    private String criticsRating;
 
     public MovieDetailsModel(String title, String rated, String released, String director,
-                             String runtime, String language, String year, String plot, String poster) {
+                             String runtime, String language, String year, String plot, String poster, String criticsRating) {
         this.title = title;
         this.rated = rated;
         this.released = released;
@@ -22,6 +23,7 @@ public class MovieDetailsModel {
         this.year = year;
         this.plot = plot;
         this.poster = poster;
+        this.criticsRating = criticsRating;
     }
 
     public String getTitle() { return title; }
@@ -33,4 +35,6 @@ public class MovieDetailsModel {
     public String getYear() { return year; }
     public String getPlot() { return plot; }
     public String getPoster() { return poster; }
+    public String getCriticsRating() { return criticsRating; }
+
 }
